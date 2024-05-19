@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3336105123020931"
+     crossorigin="anonymous"></script>
+    <title>SAQ Grader</title>
+</head>
+<body>
+    <h1>SAQ Grader</h1>
+        <h2> Version 1.1.0 ; Model 8Ar7ZOuA. </h2>
+    <form method="post" action="/saq">
+        <label for="PROMPT">Prompt:</label>
+        <input type="text" id="PROMPT" name="PROMPT" required><br><br>
+
+        <label for="RESPONSE">Student Response:</label>
+        <input type="text" id="RESPONSE" name="RESPONSE" required><br><br>
+
+        <input type="submit" value="Grade">
+    </form>
+
+    {% if resp %}
+        <h2>Grade:</h2>
+        <p>{{ resp.content }}</p>
+    {% endif %}
+
+    {% if has_sample %}
+        <h2>Sample Response:</h2>
+        <p>{{has_sample}}</p>
+    {% endif %}
+
+</body>
+</html>

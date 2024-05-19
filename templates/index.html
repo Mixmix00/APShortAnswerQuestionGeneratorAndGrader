@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L0S4STG2CN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L0S4STG2CN');
+</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3336105123020931"
+     crossorigin="anonymous"></script>
+
+  <title>SAQ Generator Beta</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='dog.png') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
+  <h3>Enter the topic to be quizzed on</h3>
+<h2> A good topic is something like "How did buddhism change as it spread", not "AP World" or "Quiz me on..."</h2>
+  <form action="/e" method="post">
+    <input type="text" name="animal" placeholder="Enter a topic" required />
+    <input type="submit" value="Generate questions" />
+  </form>
+  {% if quiz_questions %}
+    <div class="quiz-questions">
+      <h4>Generated SAQ Questions:</h4>
+      <ul>
+        {% for question in quiz_questions.split('\n') %}
+          {% if question.strip() %}
+            <li>{{ question }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+</body>
+</html>

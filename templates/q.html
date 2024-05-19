@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L0S4STG2CN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L0S4STG2CN');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3336105123020931"
+     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Questions</title>
+</head>
+<body>
+    <h1>Quiz Questions</h1>
+
+    <form method="POST" action="/q">
+        <label for="topic">Enter Topic:</label>
+        <input type="text" id="topic" name="topic" required>
+        <button type="submit">Generate Questions</button>
+    </form>
+
+    {% if quiz_questions %}
+    <h2>Generated Quiz Questions</h2>
+    {{ quiz_questions | safe }}
+    {% endif %}
+</body>
+</html>

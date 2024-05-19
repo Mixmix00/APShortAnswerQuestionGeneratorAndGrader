@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L0S4STG2CN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-L0S4STG2CN');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3336105123020931"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated MCQ Questions</title>
+</head>
+<body>
+    <h1>Generated MCQ Questions</h1>
+
+    <form action="/r" method="post">
+        <label for="topic">Enter Topic:</label>
+        <input type="text" id="topic" name="topic" required>
+        <input type="submit" value="Generate Questions">
+    </form>
+
+    {% if quiz_questions %}
+    <form action="/check_answer" method="post">
+        <input type="hidden" name="quiz_questions" value="{{ quiz_questions }}">
+        <div class="quiz-questions">
+            <h4>Generated MCQ Questions:</h4>
+            <ul>
+                {% for question in quiz_questions %}
+                    {% if question.strip() %}
+                        <li>
+                            {{ question }}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                <li>
+                    <br>
+                    <label><input type="radio" name="answer" value="A"> A</label>
+                    <label><input type="radio" name="answer" value="B"> B</label>
+                    <label><input type="radio" name="answer" value="C"> C</label>
+                    <label><input type="radio" name="answer" value="D"> D</label>
+                </li>
+            </ul>
+        </div>
+        <input type="submit" value="Submit Answers">
+    </form>
+    {% endif %}
+</body>
+</html>

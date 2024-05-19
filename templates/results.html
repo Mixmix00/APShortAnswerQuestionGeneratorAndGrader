@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Answer Results</title>
+</head>
+<body>
+  <h1>Answer Results</h1>
+
+  <ul>
+    {% for question, is_correct in correct_answers.items() %}
+      <li>
+        Question {{ question }}: {% if is_correct %}Correct{% else %}Incorrect{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

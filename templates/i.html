@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3336105123020931"
+     crossorigin="anonymous"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L0S4STG2CN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L0S4STG2CN');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Page</title>
+    
+    <!-- Include the stylesheet using Flask's url_for() -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+<body>
+    <h1>Welcome to the Navigation Page</h1>
+    <p>Choose an option:</p>
+    
+    <!-- Button for /e (SAQ) -->
+    <button onclick="navigateToSAQ()">Go to /e (SAQ Question Generator)</button>
+
+    <!-- Buttton for /saq (SAQ GRADER) -->
+     <button onclick="navigateToSAQGrader()"> Go to /saq (SAQ Response Grader) </button>
+
+
+    <script>
+        // Function to navigate to /e (SAQ)
+        function navigateToSAQ() {
+            window.location.href = "/e";
+        }
+
+        // Function to navigate to /saq (SAQ GRADER)
+        function navigateToSAQGrader() {
+            window.location.href = "/saq";
+        }
+     
+
+     
+    </script>
+</body>
+</html>
